@@ -25,9 +25,9 @@ app.use((req, res, next) => {
 });
 
 // stops everything else from executing (no next call)
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(`${__dirname}/public`));
 
@@ -49,9 +49,9 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/bad', (req, res) => {
-  res.send({
-    error: 'ERROR!',
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    title: 'My Projects Page',
   });
 });
 
