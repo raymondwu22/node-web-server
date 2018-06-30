@@ -3,6 +3,9 @@ const hbs = require('hbs');
 const moment = require('moment');
 const fs = require('fs');
 
+// set for Heroku
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 hbs.registerPartials(`${__dirname}/views/partials`);
 app.set('view engine', 'hbs');
@@ -52,6 +55,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is listening!');
+app.listen(PORT, () => {
+  console.log(`Server is listening on ${PORT}!`);
 });
